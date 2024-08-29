@@ -6,7 +6,6 @@ import './Navbar.css';
 import logo from '../../assets/logo192.png';
 
 import Avatar from '../../components/Avatar/Avatar';
-import Button from '../../components/Button/Button';
 
 const Navbar = () => {
 
@@ -38,10 +37,10 @@ const Navbar = () => {
                     <Link to="/auth" className="nav-item nav-links">Log In</Link> :
 
                     <>
-                        <Link to="/" className="avatar">
-                            <Avatar>S</Avatar>
+                        <Link to="/User" className="avatar">
+                            <Avatar backgroundColor="#009ddf" px="10px" py="7px" borderRadius="50%" color="white" className="avatar-alpha">S</Avatar>
                         </Link>
-                        <Button className="nav-item nav-btn">Log Out</Button>
+                        <button className="nav-item nav-btn">Log Out</button>
                     </>
                     
                 } 
