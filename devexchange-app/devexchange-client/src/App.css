@@ -37,7 +37,7 @@
   }
 }
 
-.home-container-1{
+/* .home-container-1{
   min-height: 100vh;
   max-width:1250px;
   width: 100%;
@@ -53,4 +53,19 @@
   padding: 24px;
   box-sizing: border-box;
   
+} */
+
+.home-container-1{
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  width: 100vw;
+  margin-top: 40px;
+}
+
+.home-container-2{
+  display: flex;
+  justify-content: space-around;
+  width: 80vw;
+  min-height: 100vh;
 }

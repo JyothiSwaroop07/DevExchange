@@ -52,9 +52,9 @@
   
   .widget-tags-div {
     display: flex;
-    flex-flow: row wrap;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
     border: solid 1px #e3e6e8;
     padding: 10px;
   }
@@ -65,6 +65,7 @@
     color: #39739d;
     border-radius: 2px;
     font-size: 14px;
+    
   }
   
   @media screen and (max-width: 1020px) {
