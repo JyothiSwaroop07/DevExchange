@@ -19,9 +19,7 @@ const Auth = () => {
             {isSignUp && <AboutAuth/>}
             <div className="auth-container">
                 { !isSignUp && <img src={logo} alt="devexchange" className="login-logo"/> }
-
                 <form>
-
                     {
                         isSignUp && (
                             <label htmlFor="name">

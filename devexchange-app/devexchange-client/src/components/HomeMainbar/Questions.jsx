@@ -4,12 +4,13 @@ import { Link } from "react-router-dom";
 import './HomeMainbar.css'
 
 const Questions = ({question}) => {
+
     return (
         <div className="display-question-container">
 
             <div className="display-votes-ans">
-                <p>{question.votes}</p>
-                <p>votes</p>
+                <p>{question.upvotes}</p>
+                <p>Up Votes</p>
             </div>
 
             <div className="display-votes-ans">
