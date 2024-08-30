@@ -35,6 +35,7 @@
     text-decoration: none;
     color: rgb(69,69,69);
     transition: 0.2s;
+
 }
 
 .nav-item:hover{
@@ -71,14 +72,14 @@
 
 .nav-links {
     padding: 7px 13px;
-    border: solid 1px blue;
+    border: solid 1px #ef8236;
     border-radius: 3px;
-    background-color: #e7f8fe;
+    background-color: #f4dcc9;
     cursor: pointer;
 }
 
 .nav-links:hover {
-    background-color: #d3e4eb;
+    background-color: #ef8236;
 }
 
 .avatar-alpha{

@@ -7,6 +7,8 @@ import logo from '../../assets/logo192.png';
 
 import Avatar from '../../components/Avatar/Avatar';
 
+import {CiSearch} from 'react-icons/ci'
+
 const Navbar = () => {
 
     var User = null;
@@ -14,9 +16,8 @@ const Navbar = () => {
     return (
         <nav className="main-nav">
             <div className="navbar">
-                <Link to="/" className="nav-item nav-btn nav-logo">
-                    <img src={logo} alt="logo" width="28"/>
-                    <h1>Dev Exchange</h1>
+                <Link to="/" className="nav-item2 nav-btn nav-logo">
+                    <img src={logo} alt="logo" width="198"/>
                 </Link>
                 <Link to="/" className="nav-item nav-btn">
                     About
@@ -30,7 +31,7 @@ const Navbar = () => {
 
                 <form>
                     <input type="text" placeholder="Search..."/>
-                    <img src={logo} alt="search-icon" className="search-icon" width="18"/> 
+                    <CiSearch className="search-icon" />
                 </form>
 
                 {User===null ? 
