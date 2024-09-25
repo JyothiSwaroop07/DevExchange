@@ -4,6 +4,11 @@ import { useSelector,useDispatch } from 'react-redux';
 import { BiSolidUpvote, BiSolidDownvote } from "react-icons/bi";
 import Avatar from "../../components/Avatar/Avatar";
 import DisplayAnswer from './DisplayAnswer';
+
+import { BiSolidUpvote, BiSolidDownvote } from "react-icons/bi";
+import { deleteQuestion } from '../../actions/question';
+
+
 import {postAnswer} from '../../actions/question'
 import './Questions.css';
 
@@ -11,11 +16,13 @@ const QuestionsDetails = () => {
     const { id } = useParams();
     const questionsList = useSelector(state => state.questionsReducer);
 
+
     const question = questionsList.data.find(question => question._id === id);
     const [Answer,setAnswer] = useState('')
     const Navigate = useNavigate()
     const dispatch = useDispatch()
     const User = useSelector((state)=>(state.currentUserReducer))
+    
     const handlePosAns = (e,answerLength) =>{
         e.preventDefault()
         console.log(answerLength)
@@ -30,6 +37,14 @@ const QuestionsDetails = () => {
             }
         }
     }
+
+
+    const handleDelete = () => {
+        console.log("Deleting question with ID:", id);
+        dispatch(deleteQuestion(id, Navigate))
+    }
+
+
     return (
         <div className='question-details-page'>
             <section className='question-details-container'>
@@ -50,7 +65,12 @@ const QuestionsDetails = () => {
                         <div className="question-actions-user">
                             <div>
                                 <button type="button">Share</button>
-                                <button type="button">Delete</button>
+                                {
+                                    User?.result?._id === question?.userId && (
+                                        <button type="button" onClick={handleDelete}>Delete</button>
+                                    )
+                                }
+                                
                             </div>
                             <div>
                                 <p>asked {question.askedOn}</p>

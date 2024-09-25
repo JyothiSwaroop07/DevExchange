@@ -21,6 +21,16 @@ export const fetchAllQuestions = () => async(dispatch) =>{
     }
 }
 
+export const deleteQuestion = (id, navigate) => async (dispatch) => {
+    try{
+        await api.deleteQuestion(id)
+        dispatch(fetchAllQuestions())
+        navigate('/')
+    }catch(error){
+        console.log(error)
+    }
+}
+
 export const postAnswer=(answerData) => async (dispatch) =>{
 
     try{
@@ -34,3 +44,4 @@ export const postAnswer=(answerData) => async (dispatch) =>{
     
 
 }
+
