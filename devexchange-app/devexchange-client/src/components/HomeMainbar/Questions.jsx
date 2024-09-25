@@ -4,12 +4,13 @@ import { Link } from "react-router-dom";
 import './HomeMainbar.css'
 
 const Questions = ({question}) => {
+    console.log(question)
 
     return (
         <div className="display-question-container">
 
             <div className="display-votes-ans">
-                <p>{question.upvotes}</p>
+                <p>{question.upVote.length}</p>
                 <p>Up Votes</p>
             </div>
 
@@ -19,7 +20,7 @@ const Questions = ({question}) => {
             </div>
 
             <div className="display-question-details">
-                <Link to={`/Questions/${question.id}`} className="question-title">
+                <Link to={`/Questions/${question._id}`} className="question-title">
                     {question.questionTitle}
                 </Link>
                 <div className="display-tags-time">
