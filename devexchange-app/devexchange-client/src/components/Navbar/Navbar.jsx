@@ -46,7 +46,7 @@ const Navbar = () => {
 
                     <>
                         <Link to="/User" className="avatar">
-                            <Avatar backgroundColor="#009ddf" px="10px" py="7px" borderRadius="50%" color="white" className="avatar-alpha">S</Avatar>
+                            <Avatar backgroundColor="#009ddf" px="10px" py="7px" borderRadius="50%" color="white" className="avatar-alpha">{User.result.name.charAt(0).toUpperCase()}</Avatar>
                         </Link>
                         <button className="nav-item nav-btn">Log Out</button>
                     </>

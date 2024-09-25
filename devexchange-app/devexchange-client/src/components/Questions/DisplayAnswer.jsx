@@ -2,7 +2,7 @@ import React from 'react';
 import Avatar from '../Avatar/Avatar';
 import { Link } from 'react-router-dom';
 
-function DisplayAnswer({ question }) {
+const  DisplayAnswer = ({ question })=> {
   
   // Function to generate a random background color
   const getRandomColor = () => {
@@ -14,7 +14,7 @@ function DisplayAnswer({ question }) {
     <div>
       {
         question.answer.map((ans) => (
-          <div className="display-ans" key={ans.id}>
+          <div className="display-ans" key={ans._id}>
             <p>{ans.answerBody}</p>
             <div className="question-actions-user">
               <div>
@@ -37,7 +37,7 @@ function DisplayAnswer({ question }) {
         ))
       }
     </div>
-  );
+  )
 }
 
 export default DisplayAnswer;
