@@ -5,14 +5,22 @@ import Avatar from "../../components/Avatar/Avatar";
 import DisplayAnswer from './DisplayAnswer';
 import { BiSolidUpvote, BiSolidDownvote } from "react-icons/bi";
 import { useSelector } from 'react-redux';
+import { deleteQuestion } from '../../actions/question';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 const QuestionsDetails = () => {
     const { id } = useParams();
+
+    const Navigate = useNavigate()
+    const dispatch = useDispatch()
+    
 
     // Debugging
     console.log("Question ID from URL:", id);
 
     const questionsList = useSelector(state => state.questionsReducer);
+    const User = useSelector((state)=>(state.currentUserReducer))
     
     // Debugging
     console.log("questionsList from Redux:", questionsList);
@@ -28,6 +36,11 @@ const QuestionsDetails = () => {
     // Handle case where question is not found
     if (!question) {
         return <h1>Question not found</h1>;
+    }
+
+    const handleDelete = () => {
+        console.log("Deleting question with ID:", id);
+        dispatch(deleteQuestion(id, Navigate))
     }
 
     return (
@@ -50,7 +63,12 @@ const QuestionsDetails = () => {
                         <div className="question-actions-user">
                             <div>
                                 <button type="button">Share</button>
-                                <button type="button">Delete</button>
+                                {
+                                    User?.result?._id === question?.userId && (
+                                        <button type="button" onClick={handleDelete}>Delete</button>
+                                    )
+                                }
+                                
                             </div>
                             <div>
                                 <p>asked {question.askedOn}</p>

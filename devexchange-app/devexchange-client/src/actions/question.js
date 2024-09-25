@@ -20,3 +20,13 @@ export const fetchAllQuestions = () => async(dispatch) =>{
         console.log(error)
     }
 }
+
+export const deleteQuestion = (id, navigate) => async (dispatch) => {
+    try{
+        await api.deleteQuestion(id)
+        dispatch(fetchAllQuestions())
+        navigate('/')
+    }catch(error){
+        console.log(error)
+    }
+} 
