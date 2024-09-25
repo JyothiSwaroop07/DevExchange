@@ -1,5 +1,6 @@
-import React from "react";
+import React ,{useEffect} from "react";
 import { Link } from "react-router-dom";
+import {useSelector,useDispatch} from 'react-redux';
 
 import './Navbar.css';
 
@@ -8,10 +9,16 @@ import logo from '../../assets/logo192.png';
 import Avatar from '../../components/Avatar/Avatar';
 
 import {CiSearch} from 'react-icons/ci'
+import { setCurrentUser } from "../../actions/currentUser";
 
 const Navbar = () => {
 
-    var User = null;
+    const dispatch = useDispatch()
+    var User = useSelector((state)=> (state.currentUserReducer));
+
+    useEffect(()=>{
+        dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile')) ))
+    },[dispatch])
 
     return (
         <nav className="main-nav">

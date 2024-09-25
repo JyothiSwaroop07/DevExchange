@@ -55,3 +55,7 @@
 .review-btn :hover{
     background-color: #009dff;
 }
+
+input , textarea{
+    width : 80%;
+}
