@@ -1,47 +1,49 @@
-import React from 'react';
-import { useParams, Link } from 'react-router-dom';
-import './Questions.css';
+import React ,{useState}from 'react';
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useSelector,useDispatch } from 'react-redux';
+import { BiSolidUpvote, BiSolidDownvote } from "react-icons/bi";
 import Avatar from "../../components/Avatar/Avatar";
 import DisplayAnswer from './DisplayAnswer';
+
 import { BiSolidUpvote, BiSolidDownvote } from "react-icons/bi";
-import { useSelector } from 'react-redux';
 import { deleteQuestion } from '../../actions/question';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+
+
+import {postAnswer} from '../../actions/question'
+import './Questions.css';
 
 const QuestionsDetails = () => {
     const { id } = useParams();
-
-    const Navigate = useNavigate()
-    const dispatch = useDispatch()
-    
-
-    // Debugging
-    console.log("Question ID from URL:", id);
-
     const questionsList = useSelector(state => state.questionsReducer);
-    const User = useSelector((state)=>(state.currentUserReducer))
-    
-    // Debugging
-    console.log("questionsList from Redux:", questionsList);
 
-    if (!questionsList || !questionsList.data) {
-        return <h1>Loading...</h1>;
-    }
 
     const question = questionsList.data.find(question => question._id === id);
-
-    console.log(question.upVote.length - question.downVote.length)
+    const [Answer,setAnswer] = useState('')
+    const Navigate = useNavigate()
+    const dispatch = useDispatch()
+    const User = useSelector((state)=>(state.currentUserReducer))
     
-    // Handle case where question is not found
-    if (!question) {
-        return <h1>Question not found</h1>;
+    const handlePosAns = (e,answerLength) =>{
+        e.preventDefault()
+        console.log(answerLength)
+        if(User === null){
+            alert('Login or Signup to answer a question')
+            Navigate('/Auth')
+        }else{
+            if(Answer === ''){
+                alert('Enter an answer before submitting')
+            }else{
+                dispatch(postAnswer({id, noOfAnswers : answerLength + 1, answerBody : Answer, userAnswered: User.result.name}))
+            }
+        }
     }
+
 
     const handleDelete = () => {
         console.log("Deleting question with ID:", id);
         dispatch(deleteQuestion(id, Navigate))
     }
+
 
     return (
         <div className='question-details-page'>
@@ -88,13 +90,13 @@ const QuestionsDetails = () => {
             {question.noOfAnswers !== 0 && (
                 <section>
                     <h3>{question.noOfAnswers} answers</h3>
-                    <DisplayAnswer key={question.id} question={question} />
+                    <DisplayAnswer key={question._id} question={question} />
                 </section>
             )}
             <section className='post-ans-container'>
                 <h3>Your Answer</h3>
-                <form>
-                    <textarea name='' id='' cols="30" rows="10"></textarea>
+                <form onSubmit={(e) =>{handlePosAns(e,question.answer.length) }}>
+                    <textarea name='answer' id='answer' cols="30" rows="10" onChange={(e) => setAnswer(e.target.value)} ></textarea>
                     <input type="submit" className='post-ans-btn' value="Post Your Answer" />
                 </form>
                 <p>
