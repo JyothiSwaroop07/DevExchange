@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import './HomeMainbar.css'
 
 const Questions = ({question}) => {
-    console.log(question)
-
     return (
         <div className="display-question-container">
 

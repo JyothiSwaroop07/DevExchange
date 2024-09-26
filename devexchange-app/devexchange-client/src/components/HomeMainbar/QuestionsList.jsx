@@ -2,8 +2,6 @@ import React from "react";
 import Questions from "./Questions";
 
 const QuestionsList = ({questionList}) => {
-    console.log(questionList)
-    console.log(JSON.stringify(questionList, null, 2));
 
     return (
         <>

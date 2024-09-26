@@ -16,7 +16,6 @@ const AskQuestion = () => {
 
     const handleSubmit = (e) =>{
         e.preventDefault()
-        //console.log({questionTitle,questionBody,questionTags});
         dispatch(askQuestion({questionTitle,questionBody,questionTags,userPosted: User.result.name, userId: User?.result._id},navigate))
     }
 
@@ -42,12 +41,12 @@ const AskQuestion = () => {
                         <label htmlFor="ask-ques-body">
                             <h4>Body</h4>
                             <p>Introduce the problem and expand on what you put in the title. Minimum 20 characters.</p>
-                            <textarea name="" id="ask-ques-body" onChange={(e)=>{setQuestionBody(e.target.value)}} cols="30" rows="10" onKeyPress={handleEnter} ></textarea>
+                            <textarea name="QuestionBody" id="ask-ques-body" onChange={(e)=>{setQuestionBody(e.target.value)}} cols="30" rows="10" onKeyPress={handleEnter} ></textarea>
                         </label>
                         <label htmlFor="ask-ques-tags">
                             <h4>Tags</h4>
                             <p>Add up to 5 tags to describe what your question is about. Start typing to see suggestions.</p>
-                            <input type="text" name="QuestionTitle" id="ask-ques-tags" onChange={(e)=>{setQuestionTags(e.target.value.split(" "))}} placeholder="e.g. (typescript django asp.net)" />
+                            <input type="text" name="QuestionTags" id="ask-ques-tags" onChange={(e)=>{setQuestionTags(e.target.value.split(" "))}} placeholder="e.g. (typescript django asp.net)" />
                         </label>
                     </div>
                     <input type="submit" value="Review your question" className="review-btn" />
