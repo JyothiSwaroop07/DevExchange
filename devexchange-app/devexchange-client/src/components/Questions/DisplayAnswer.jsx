@@ -1,8 +1,9 @@
 import React from 'react';
 import Avatar from '../Avatar/Avatar';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 
-const  DisplayAnswer = ({ question })=> {
+const  DisplayAnswer = ({ question ,handleShare})=> {
   
   // Function to generate a random background color
   const getRandomColor = () => {
@@ -18,11 +19,11 @@ const  DisplayAnswer = ({ question })=> {
             <p>{ans.answerBody}</p>
             <div className="question-actions-user">
               <div>
-                <button type='button'>Share</button>
+                <button type='button' onClick={handleShare} >Share</button>
                 <button type='button'>Delete</button>
               </div>
               <div>
-                <p>answered {ans.answeredOn}</p>
+                <p>answered {moment(ans.answeredOn).fromNow()}</p>
                 <Link to={`/User/${question.userId}`} className="user-link" style={{ color: '#0086d8' }}>
                   <Avatar backgroundColor={getRandomColor()} px="8px" py="5px">
                     {ans.userAnswered.charAt(0).toUpperCase()}
