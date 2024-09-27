@@ -1,6 +1,6 @@
 .left-sidebar{
-    width:164px;
-    box-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+    width: 18vw;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 15px;
     transition: box-shadow ease-in-out 0.1s transform ease-in-out 0.1s;
     transform: translateZ(0);
     box-sizing: border-box;
@@ -11,9 +11,16 @@
 .side-nav{
     height: auto;
     max-width: 100%;
-    position: sticky;
-    margin: 50px 0px;
-    padding: 20px 0px;
+    position: fixed;
+    padding: 25px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.nav-logo{
+    margin-bottom: 40px;
 }
 
 .side-nav-div div{
@@ -28,16 +35,21 @@
     align-items: center;
     justify-content: flex-start;
     padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 4px;
 }
 
 .side-nav-links:hover{
     color: black;
+    
+
 }
 
 .active{
     font-weight: bolder;
     color: black;
-    background-color: rgb(225,225,225);
-    border-right: solid 3px #ef8236;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 12px;
+    border-right: solid 3px #037ecb;
 
 }

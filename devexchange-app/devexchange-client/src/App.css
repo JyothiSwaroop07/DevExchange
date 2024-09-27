@@ -1,5 +1,5 @@
 .App {
-  
+  background-color: #ffffff !important;
 }
 
 .App-logo {
@@ -60,12 +60,14 @@
   display: flex;
   justify-content: space-around;
   width: 100vw;
-  margin-top: 40px;
+  /* margin-top: 40px; */
+  background-color: #ffffff;
 }
 
 .home-container-2{
   display: flex;
   justify-content: space-around;
   width: 80vw;
+  margin-top: 85px;
   min-height: 100vh;
 }

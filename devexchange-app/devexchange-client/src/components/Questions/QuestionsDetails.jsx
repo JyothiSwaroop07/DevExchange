@@ -66,9 +66,9 @@ const QuestionsDetails = () => {
                 <h1>{question.questionTitle}</h1>
                 <div className='question-details-container-2'>
                     <div className="question-votes">
-                        <BiSolidUpvote className='votes-icon' height={5} onClick={handleUpVote}/>
+                        <BiSolidUpvote className='votes-icon' height={5} onClick={handleUpVote} />
                         <p>{question.upVote.length - question.downVote.length}</p>
-                        <BiSolidDownvote className='votes-icon' onClick={handleDownVote}/>
+                        <BiSolidDownvote className='votes-icon' onClick={handleDownVote} />
                     </div>
                     <div style={{ width: "100%" }}>
                         <p className='question-body'>{question.questionBody}</p>
@@ -95,12 +95,14 @@ const QuestionsDetails = () => {
                     </div>
                 </div>
             </section>
+            
             {question.noOfAnswers !== 0 && (
-                <section>
+                <section className="answers-section">
                     <h3>{question.noOfAnswers} answers</h3>
                     <DisplayAnswer key={question._id} question={question} handleShare={handleShare} />
                 </section>
             )}
+            
             <section className='post-ans-container'>
                 <h3>Your Answer</h3>
                 <form onSubmit={(e) => { handlePosAns(e, question.answer.length); }}>
@@ -124,6 +126,7 @@ const QuestionsDetails = () => {
             </section>
         </div>
     );
+    
 }
 
 export default QuestionsDetails;

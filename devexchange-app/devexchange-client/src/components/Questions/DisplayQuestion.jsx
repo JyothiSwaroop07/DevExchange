@@ -10,7 +10,7 @@ const DisplayQuestion = () => {
             <LeftSidebar />
             <div className="home-container-2">
                 <QuestionsDetails/>
-                <RightSidebar />
+                {/* <RightSidebar /> */}
             </div>    
 
         </div>
