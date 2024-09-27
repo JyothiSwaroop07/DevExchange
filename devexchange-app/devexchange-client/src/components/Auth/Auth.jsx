@@ -42,6 +42,7 @@ const Auth = () => {
         }
         else{
             dispatch(logIn({email, password}, navigate))
+            console.log("1log")
         }
 
 
