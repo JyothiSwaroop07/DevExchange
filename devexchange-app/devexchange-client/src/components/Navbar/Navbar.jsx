@@ -3,11 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import './Navbar.css';
 
-import logo from '../../assets/logo192.png';
+
 import Avatar from '../../components/Avatar/Avatar';
 import { CiSearch } from 'react-icons/ci';
 import { setCurrentUser } from "../../actions/currentUser";
-import { jwtDecode } from 'jwt-decode'; // Correct named import
 
 const Navbar = () => {
     const dispatch = useDispatch();
@@ -28,10 +27,8 @@ const Navbar = () => {
     return (
         <nav className="main-nav">
             <div className="navbar">
-                <Link to="/" className="nav-item2 nav-btn nav-logo">
-                    <img src={logo} alt="logo" width="198" />
-                </Link>
-                <Link to="/" className="nav-item nav-btn">
+                
+                {/* <Link to="/" className="nav-item nav-btn">
                     About
                 </Link>
                 <Link to="/" className="nav-item nav-btn">
@@ -39,10 +36,10 @@ const Navbar = () => {
                 </Link>
                 <Link to="/" className="nav-item nav-btn">
                     For Teams
-                </Link>
+                </Link> */}
 
                 <form>
-                    <input type="text" placeholder="Search..." />
+                    <input type="text" placeholder="Search..." className="search"/>
                     <CiSearch className="search-icon" />
                 </form>
 
@@ -50,11 +47,11 @@ const Navbar = () => {
                     <Link to="/auth" className="nav-item nav-links">Log In</Link> :
                     <>
                         <Link to="/User" className="avatar">
-                            <Avatar backgroundColor="#009ddf" px="10px" py="7px" borderRadius="50%" color="white" className="avatar-alpha">
+                            <Avatar backgroundColor="#009ddf" px="10px" py="7px" borderRadius="50%" style={{textDecoration: 'none'}} color="white" className="avatar-alpha">
                                 {User.result.name.charAt(0).toUpperCase()}
                             </Avatar>
                         </Link>
-                        <button className="nav-item nav-btn" onClick={handleLogout}>Log Out</button>
+                        <button className="nav-links" onClick={handleLogout}>Log Out</button>
                     </>
                 }
             </div>

@@ -10,10 +10,12 @@ const Avatar = ({children, backgroundColor, px, py , color, borderRadius, fontSi
         color: color || 'black',
         borderRadius,
         fontSize,
+        textDecoration: 'none',
         textAlign: "center",
         cursor: cursor || null,
-        width: "25px"
+        width: "25px",
     }
+
 
     return (
         <>

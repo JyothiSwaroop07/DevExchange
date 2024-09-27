@@ -5,6 +5,8 @@ import moment from 'moment';
 import { useDispatch, useSelector } from 'react-redux';
 import {deleteAnswer} from '../../actions/question';
 
+import './Questions.css'
+
 const  DisplayAnswer = ({ question ,handleShare})=> {
   
   // Function to generate a random background color
@@ -29,15 +31,15 @@ const  DisplayAnswer = ({ question ,handleShare})=> {
             <p>{ans.answerBody}</p>
             <div className="question-actions-user">
               <div>
-                <button type='button' onClick={handleShare} >Share</button>
+                <button type='button' onClick={handleShare} className='share'>Share</button>
                 {
                     User?.result?._id === ans?.userId && (
-                        <button type="button" onClick={()=>handleDelete(ans._id, question.noOfAnswers)}>Delete</button>
+                        <button type="button" onClick={()=>handleDelete(ans._id, question.noOfAnswers)} className='share'>Delete</button>
                     )
                 }
               </div>
               <div>
-                <p>answered {moment(ans.answeredOn).fromNow()}</p>
+                <p className='time'>answered {moment(ans.answeredOn).fromNow()}</p>
                 <Link to={`/User/${question.userId}`} className="user-link" style={{ color: '#0086d8' }}>
                   <Avatar backgroundColor={getRandomColor()} px="8px" py="5px">
                     {ans.userAnswered.charAt(0).toUpperCase()}
