@@ -6,6 +6,9 @@ import { useLocation,useNavigate } from "react-router-dom";
 import './HomeMainbar.css'
 
 import QuestionsList from "./QuestionsList";
+import Navbar from "../Navbar/Navbar";
+
+import { useState } from "react";
 
 const HomeMainbar = () => {
 
@@ -15,6 +18,7 @@ const HomeMainbar = () => {
 
     const questionsList = useSelector(state=>state.questionsReducer)
 
+    const [filteredQuestions, setFilteredQuestions] = useState(questionsList.data || []);
 
 
     const checkAuth = () =>{
@@ -27,7 +31,24 @@ const HomeMainbar = () => {
         }
     }
 
+    const handleSearch = (query) => {
+        console.log(query, "1")
+        if (!query) {
+            setFilteredQuestions(questionsList.data);
+        } else {
+            const filtered = questionsList.data.filter((question) =>
+                question.questionTitle.toLowerCase().includes(query.toLowerCase()) ||
+                question.questionTags.some(tag => tag.toLowerCase().includes(query.toLowerCase())) ||
+                question.answer.some(ans => ans.answerBody.toLowerCase().includes(query.toLowerCase()))
+            );
+            setFilteredQuestions(filtered);
+            console.log(filteredQuestions.length)
+        }
+    };
+
     return (
+        <>
+        <Navbar onSearch={handleSearch}/>
         <div className="main-bar">
             <div className="main-bar-header">
                 {
@@ -42,15 +63,16 @@ const HomeMainbar = () => {
                         <h1>Loading...</h1> :
                         <>
                             <p className="count">
-                                {questionsList.data.length} questions
+                                {filteredQuestions.length} questions
                             </p>
                             
-                           <QuestionsList questionList={questionsList.data} />
+                           <QuestionsList questionList={filteredQuestions} />
                             
                         </>
                 }
             </div>
         </div>
+        </>
     )
 }
 

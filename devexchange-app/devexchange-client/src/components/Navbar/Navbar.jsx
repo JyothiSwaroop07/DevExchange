@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useCallback, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import './Navbar.css';
@@ -8,10 +8,13 @@ import Avatar from '../../components/Avatar/Avatar';
 import { CiSearch } from 'react-icons/ci';
 import { setCurrentUser } from "../../actions/currentUser";
 
-const Navbar = () => {
+
+const Navbar = ({onSearch}) => {
     const dispatch = useDispatch();
     const User = useSelector((state) => (state.currentUserReducer));
     const Navigate = useNavigate();
+
+    const [searchQuery, setSearchQuery] = useState("");
 
     // Wrap handleLogout in useCallback to prevent re-creation on every render
     const handleLogout = useCallback(() => {
@@ -23,6 +26,18 @@ const Navbar = () => {
     useEffect(() => {
         dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))));
     }, [dispatch, User?.token]);
+
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        console.log("search called")
+        onSearch(searchQuery);
+    };
+
+    const handleSearchChange = (val) => {
+        setSearchQuery(val);
+        onSearch(val);
+    }
 
     return (
         <nav className="main-nav">
@@ -38,9 +53,16 @@ const Navbar = () => {
                     For Teams
                 </Link> */}
 
-                <form>
-                    <input type="text" placeholder="Search..." className="search"/>
+                <form onSubmit={handleSearch}>
+                <   input
+                        type="text"
+                        placeholder="Search..."
+                        className="search"
+                        value={searchQuery}
+                        onChange={(e) => handleSearchChange(e.target.value)}
+                    />
                     <CiSearch className="search-icon" />
+                    
                 </form>
 
                 {User === null ?
