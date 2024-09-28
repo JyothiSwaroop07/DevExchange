@@ -1,7 +1,9 @@
 .user-details-container{
     width: 100%;
     margin-top: 50px;
+    padding: 50px;
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
 }
@@ -10,15 +12,30 @@
     display: flex;
     flex-direction: container;
     justify-content: flex-start;
+    min-height: 0vh;
+    overflow-y: scroll;
+    
+}
+
+.edit-continer{
+    width: 50vw;
 }
 
 .user-details{
     display: flex;
     align-items: flex-start;
+    justify-content: space-around;
+}
+
+.edit{
+    justify-self: flex-end;
+    right: 0%;
+    margin-left: auto;
 }
 
 .user-name{
-    padding-left: 20px;
+    padding: 0px 15px 20px 20px;
+
 }
 .user-name p {
     color: #7e7e7e;
@@ -38,29 +55,38 @@
 .edit-profile-title{
     padding: 20px 0px;
     border-bottom: solid 1px #dbd9d9;
+    font-size: 24px;
 }
 .edit-profile-title-2{
     color: grey;
     font-weight: 400;
+    font-size: 18px;
 }
 .edit-profile-form {
     padding: 20px;
     border: solid 1px #dbd9d9;
     border-radius: 5px;
+    width: 50vw;
 }
 .edit-profile-form label h3{
-    margin: 0%;
+    margin: 5px;
     padding: 3px 0px;
 }
 .edit-profile-form label p{
-    margin: 0%;
+    margin: 3px;
     padding: 3px 0px;
 }
 .edit-profile-form label input, .edit-profile-form label textarea{
-    padding: 5px;
+    padding: 15px;
     margin-bottom: 20px;
     border: solid 1px #dbd9d9;
-    width: 50%;
+    border-radius: 12px;
+    width: 90%;
+    font-weight: 500;
+}
+
+.edit-profile-form label input{
+    height: 20px;
 }
 
 .user-submit-btn{
@@ -92,6 +118,25 @@
 .loc-btn{
     display: flex;
     flex-direction: column;
+}
+
+.tags-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.tags{
+    padding: 10px;
+    border: solid 1px #d2d2d2;
+    border-radius: 8px;
+    margin: 6px;
+    box-shadow:rgba(0, 0, 0, 0.35) 0px 3px 5px ;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 @media only screen and (max-width: 768px) {

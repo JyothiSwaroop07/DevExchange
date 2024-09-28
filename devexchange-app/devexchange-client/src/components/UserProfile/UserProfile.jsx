@@ -26,14 +26,14 @@ const UserProfile = () => {
             <section>
                 <div className="user-details-container">
                     <div className='user-details' >
-                        <Avatar backgroundColor="purple" color='white' fontSize='50px' px='40px' py='30px' >
+                        <Avatar backgroundColor="purple" color='white' fontSize='20px' px='38px' py='38px' >
                             {currentProfile?.name.charAt(0).toUpperCase()}
                         </Avatar>
                         <div className="user-name">
                             <h1>{currentProfile?.name}</h1>
                             <p><FontAwesomeIcon icon={faBirthdayCake}/> joined {moment(currentProfile?.joinedOn).fromNow()} </p>
                         </div>
-                        <div>
+                        <div className='edit'>
                             {
                                 currentUser?.result._id === id &&(
                                     <button type="button" onClick={()=>setSwitch(true)} className = "edit-profile-btn" >
@@ -42,7 +42,8 @@ const UserProfile = () => {
                                 )
                             }
                         </div>
-                        <>
+                    </div>
+                    <div>
                         {
                             Switch ? (
                                 <EditProfileForm currentUser={currentUser} setSwitch={setSwitch}/>
@@ -50,9 +51,13 @@ const UserProfile = () => {
                                 <ProfileBio currentProfile={currentProfile} />
                             )
                         }
+                        </div>
+                        
+                        <>
+                        
                         </>
                     </div>
-                </div>
+                
             </section>
         </div>
     </div>

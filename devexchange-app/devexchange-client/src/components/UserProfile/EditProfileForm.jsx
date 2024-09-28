@@ -25,7 +25,7 @@ const EditProfileForm = ({currentUser,setSwitch}) => {
     
 
   return (
-    <div>
+    <div className="edit-container">
         <h1 className='edit-profile-title' >
             Edit your Profile
         </h1>
