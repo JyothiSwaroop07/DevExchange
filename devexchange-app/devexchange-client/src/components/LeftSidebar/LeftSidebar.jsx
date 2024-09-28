@@ -36,7 +36,7 @@ const LeftSidebar = () => {
                     <MdLeaderboard />
                         <p style={{paddingLeft:"10px"}}>Leaderboard</p>
                     </NavLink>
-                    <NavLink to="/users"  className="side-nav-links" activeClassName = "active">
+                    <NavLink to="/Users"  className="side-nav-links" activeClassName = "active">
                     <FaUsers />
                         <p style={{paddingLeft:"10px"}}>Users</p>
                     </NavLink>
