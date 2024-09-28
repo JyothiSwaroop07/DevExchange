@@ -1,14 +1,13 @@
 import './App.css';
 import { useEffect } from 'react';
-import { BrowserRouter as Router, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import Navbar from './components/Navbar/Navbar';
 import Routing from './Routing';
 import { fetchAllQuestions } from './actions/question';
 import { fetchAllUsers } from './actions/users';
 
 const AppContent = () => {
-  const location = useLocation();
+  
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -18,7 +17,7 @@ const AppContent = () => {
 
   return (
     <div className="App">
-      {location.pathname !== '/auth' && location.pathname !== '/AskQuestion' && location.pathname!=='/Tags' && <Navbar />}
+      {/* {location.pathname !== '/auth' && location.pathname !== '/AskQuestion' && location.pathname!=='/Tags' && <Navbar />} */}
       <Routing />
     </div>
   );
