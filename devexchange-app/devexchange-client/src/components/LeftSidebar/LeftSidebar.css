@@ -1,11 +1,12 @@
 .left-sidebar{
-    width: 18vw;
+    width: 20vw;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 15px;
     transition: box-shadow ease-in-out 0.1s transform ease-in-out 0.1s;
     transform: translateZ(0);
     box-sizing: border-box;
     font-size: 13px;
-
+    
+    
 }
 
 .side-nav{

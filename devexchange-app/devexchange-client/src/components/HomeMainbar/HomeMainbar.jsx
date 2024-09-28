@@ -41,7 +41,7 @@ const HomeMainbar = () => {
                     questionsList.data === null ?
                         <h1>Loading...</h1> :
                         <>
-                            <p>
+                            <p className="count">
                                 {questionsList.data.length} questions
                             </p>
                             

@@ -7,6 +7,11 @@
   pointer-events: none;
 }
 
+body {
+  overflow-x: hidden;
+  
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -56,18 +61,22 @@
 } */
 
 .home-container-1{
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
+  margin: 0%;
   justify-content: space-around;
   width: 100vw;
   /* margin-top: 40px; */
   background-color: #ffffff;
+  overflow-y: hidden;
 }
 
 .home-container-2{
   display: flex;
   justify-content: space-around;
-  width: 80vw;
+  width: 82vw;
   margin-top: 85px;
   min-height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: none;
 }

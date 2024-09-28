@@ -44,7 +44,9 @@ const Navbar = () => {
                 </form>
 
                 {User === null ?
-                    <Link to="/auth" className="nav-item nav-links">Log In</Link> :
+                    <Link to="/auth" className="">
+                        <button className="nav-links" >Log In</button>
+                    </Link> :
                     <>
                         <Link to="/User" className="avatar">
                             <Avatar backgroundColor="#009ddf" px="10px" py="7px" borderRadius="50%" style={{textDecoration: 'none'}} color="white" className="avatar-alpha">
