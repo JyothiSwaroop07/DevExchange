@@ -8,6 +8,7 @@ import Questions from "./components/Questions/Questions";
 import DisplayQuestion from "./components/Questions/DisplayQuestion";
 import Users from "./components/Users/Users";
 import Tags from "./components/Tags/Tags";
+import UserProfile from "./components/UserProfile/UserProfile";
 
 
 const Routing = () => {
@@ -20,6 +21,7 @@ const Routing = () => {
             <Route exact path="/Questions/:id" element={<DisplayQuestion />} />
             <Route exact path="/Users" element={<Users/>} />
             <Route exact path = "/Tags" element={<Tags/>}/>
+            <Route exact path = "/Users/:id" element={<UserProfile/>}/>
         </Routes>
     );
 }
