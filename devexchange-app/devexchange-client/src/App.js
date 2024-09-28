@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import Navbar from './components/Navbar/Navbar';
 import Routing from './Routing';
 import { fetchAllQuestions } from './actions/question';
+import { fetchAllUsers } from './actions/users';
 
 const AppContent = () => {
   const location = useLocation();
@@ -12,6 +13,7 @@ const AppContent = () => {
 
   useEffect(() => {
     dispatch(fetchAllQuestions());
+    dispatch(fetchAllUsers());
   }, [dispatch]);
 
   return (
