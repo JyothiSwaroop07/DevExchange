@@ -18,7 +18,7 @@ const AppContent = () => {
 
   return (
     <div className="App">
-      {location.pathname !== '/auth' && location.pathname !== '/AskQuestion' && <Navbar />}
+      {location.pathname !== '/auth' && location.pathname !== '/AskQuestion' && location.pathname!=='/Tags' && <Navbar />}
       <Routing />
     </div>
   );
