@@ -6,7 +6,7 @@ const QuestionsList = ({questionList}) => {
     return (
         <>
             {
-            questionList.map((question) =>(
+            questionList.slice(0).reverse().map((question) =>(
                 <Questions question={question} key={question._id}/>
             ))
             }   
