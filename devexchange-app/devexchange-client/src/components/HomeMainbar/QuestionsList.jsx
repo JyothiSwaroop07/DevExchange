@@ -1,7 +1,7 @@
 import React from "react";
 import Questions from "./Questions";
 
-const QuestionsList = ({questionList}) => {
+const QuestionsList = ({ questionList }) => {
 
     return (
         <>
@@ -11,7 +11,7 @@ const QuestionsList = ({questionList}) => {
             ))
             }   
         </>
-    )
+    );
 }
 
 export default QuestionsList;
