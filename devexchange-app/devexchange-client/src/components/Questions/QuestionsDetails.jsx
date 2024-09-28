@@ -86,7 +86,7 @@ const QuestionsDetails = () => {
                             </div>
                             <div>
                                 <p>asked {moment(question.askedOn).fromNow()}</p>
-                                <Link to={`/User/${question._id}`} className="user-link" style={{ color: '#0086d8' }}>
+                                <Link to={`/Users/${question._id}`} className="user-link" style={{ color: '#0086d8' }}>
                                     <MemoizedAvatar userPosted={question.userPosted} />
                                     <div>{question.userPosted}</div>
                                 </Link>

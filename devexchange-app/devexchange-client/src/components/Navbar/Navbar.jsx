@@ -70,9 +70,10 @@ const Navbar = ({onSearch}) => {
                         <button className="nav-links" >Log In</button>
                     </Link> :
                     <>
-                        <Link to="/User" className="avatar">
-                            <Avatar backgroundColor="#009ddf" px="10px" py="7px" borderRadius="50%" style={{textDecoration: 'none'}} color="white" className="avatar-alpha">
-                                {User.result.name.charAt(0).toUpperCase()}
+                        <Link to="/Users" className="avatar">
+                            <Avatar backgroundColor="#009ddf" px="10px" py="7px" borderRadius="50%" className="avatar-alpha"  color="white">
+                                <Link to={`/Users/${User?.result?._id}`} style={{color:"white",textDecoration:'none'}} >
+                                    {User.result.name.charAt(0).toUpperCase()}</Link> 
                             </Avatar>
                         </Link>
                         <button className="nav-links" onClick={handleLogout}>Log Out</button>

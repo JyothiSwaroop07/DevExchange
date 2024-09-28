@@ -1,6 +1,5 @@
 import React from 'react'
 import LeftSidebar from '../LeftSidebar/LeftSidebar'
-import RightSidebar from '../RightSidebar/RightSidebar'
 import QuestionsDetails from './QuestionsDetails'
 
 const DisplayQuestion = () => {
