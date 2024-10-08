@@ -24,17 +24,7 @@ const HomeMainbar = () => {
 
     useEffect(() => {
         setFilteredQuestions(questionsList.data || []);
-
-        const sortedFiltered = filteredQuestions.sort((a, b) => {
-            const upvoteDiff = a.upVote.length - b.upVote.length; // Sort by upvotes (descending)
-            if (upvoteDiff !== 0) {
-                return upvoteDiff;
-            }
-            return a.noOfAnswers - b.noOfAnswers;
-        });
-
-        setFilteredQuestions(sortedFiltered);
-    }, [questionsList, filteredQuestions]);
+    }, [questionsList]);
 
     const checkAuth = () =>{
         if(user===null)
