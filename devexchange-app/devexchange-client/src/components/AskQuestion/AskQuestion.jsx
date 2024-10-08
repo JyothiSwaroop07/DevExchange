@@ -3,6 +3,8 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 import './AskQuestion.css';
 import {askQuestion} from '../../actions/question'
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 const AskQuestion = () => {
 
@@ -23,8 +25,35 @@ const AskQuestion = () => {
         if(e.key === 'Enter')
         {
             setQuestionBody(questionBody + "\n");
+
+            if (!User || !User.result) {
+                alert("You need to log in to post a question.");
+                return;
+            }
         }
     }
+
+
+    const modules = {
+        toolbar: [
+          [{ 'header': [1, 2, false] }],
+          ['bold', 'italic', 'underline', 'strike'],        // toggle buttons
+          [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+          ['code-block'],
+          ['link', 'image'],                               // link and image
+          [{ 'align': [] }],                                // text alignment
+          ['clean']                                         // remove formatting button
+        ]
+      };
+    
+      const formats = [
+        'header',
+        'bold', 'italic', 'underline', 'strike',
+        'list', 'bullet',
+        'code-block',
+        'link', 'image',
+        'align'
+      ];
 
 
     return (
@@ -41,7 +70,16 @@ const AskQuestion = () => {
                         <label htmlFor="ask-ques-body">
                             <h4>Body</h4>
                             <p>Introduce the problem and expand on what you put in the title. Minimum 20 characters.</p>
-                            <textarea name="QuestionBody" id="ask-ques-body" onChange={(e)=>{setQuestionBody(e.target.value)}} cols="30" rows="10" onKeyPress={handleEnter} ></textarea>
+                            {/* <textarea name="QuestionBody" id="ask-ques-body" onChange={(e)=>{setQuestionBody(e.target.value)}} cols="30" rows="10" onKeyPress={handleEnter} ></textarea> */}
+                            <ReactQuill
+                                value={questionBody} 
+                                onChange={setQuestionBody} 
+                                modules={modules}
+                                formats={formats}
+                                onKeyPress={handleEnter}
+                                id="ask-ques-body" 
+                                className="custom-quill"
+                            />
                         </label>
                         <label htmlFor="ask-ques-tags">
                             <h4>Tags</h4>

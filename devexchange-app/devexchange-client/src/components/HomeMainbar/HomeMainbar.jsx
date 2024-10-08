@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import { useLocation,useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 import './HomeMainbar.css'
 
@@ -19,7 +20,11 @@ const HomeMainbar = () => {
     const questionsList = useSelector(state=>state.questionsReducer)
 
     const [filteredQuestions, setFilteredQuestions] = useState(questionsList.data || []);
+    
 
+    useEffect(() => {
+        setFilteredQuestions(questionsList.data || []);
+    }, [questionsList]);
 
     const checkAuth = () =>{
         if(user===null)
@@ -59,7 +64,7 @@ const HomeMainbar = () => {
 
             <div>
                 {
-                    questionsList.data === null ?
+                    filteredQuestions === null ?
                         <h1>Loading...</h1> :
                         <>
                             <p className="count">
