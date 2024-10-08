@@ -10,6 +10,9 @@ import DisplayAnswer from './DisplayAnswer';
 import { deleteQuestion, postAnswer, voteQuestion } from '../../actions/question';
 import './Questions.css';
 
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+
 const MemoizedAvatar = React.memo(({ userPosted }) => (
     <Avatar backgroundColor="orange" px="8px" py="5px">
         {userPosted.charAt(0).toUpperCase()}
@@ -60,6 +63,27 @@ const QuestionsDetails = () => {
         dispatch(voteQuestion(id, 'downvote', User.result._id))
     }
 
+    const modules = {
+        toolbar: [
+          [{ 'header': [1, 2, false] }],
+          ['bold', 'italic', 'underline', 'strike'],        // toggle buttons
+          [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+          ['code-block'],
+          ['link', 'image'],                               // link and image
+          [{ 'align': [] }],                                // text alignment
+          ['clean']                                         // remove formatting button
+        ]
+      };
+    
+      const formats = [
+        'header',
+        'bold', 'italic', 'underline', 'strike',
+        'list', 'bullet',
+        'code-block',
+        'link', 'image',
+        'align'
+      ];
+
     return (
         <div className='question-details-page'>
             <section className='question-details-container'>
@@ -71,7 +95,10 @@ const QuestionsDetails = () => {
                         <BiSolidDownvote className='votes-icon' onClick={handleDownVote} />
                     </div>
                     <div style={{ width: "100%" }}>
-                        <p className='question-body'>{question.questionBody}</p>
+                    <div 
+                            className='question-body' 
+                            dangerouslySetInnerHTML={{ __html: question.questionBody }} 
+                        />
                         <div className="question-details-tags">
                             {question.questionTags.map((tag) => (
                                 <p key={tag}>{tag}</p>
@@ -106,14 +133,22 @@ const QuestionsDetails = () => {
             <section className='post-ans-container'>
                 <h3>Your Answer</h3>
                 <form onSubmit={(e) => { handlePosAns(e, question.answer.length); }}>
-                    <textarea
+                    {/* <textarea
                         name='answer'
                         id='answer'
                         cols="30"
                         rows="10"
                         value={Answer}
                         onChange={(e) => setAnswer(e.target.value)}
-                    ></textarea>
+                    ></textarea> */}
+
+                     <ReactQuill
+                        value={Answer} 
+                        onChange={setAnswer} 
+                        modules={modules}
+                        formats={formats}
+                        />  
+
                     <input type="submit" className='post-ans-btn' value="Post Your Answer" />
                 </form>
                 <p>
