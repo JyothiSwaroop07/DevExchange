@@ -24,7 +24,17 @@ const HomeMainbar = () => {
 
     useEffect(() => {
         setFilteredQuestions(questionsList.data || []);
-    }, [questionsList]);
+
+        const sortedFiltered = filteredQuestions.sort((a, b) => {
+            const upvoteDiff = a.upVote.length - b.upVote.length; // Sort by upvotes (descending)
+            if (upvoteDiff !== 0) {
+                return upvoteDiff;
+            }
+            return a.noOfAnswers - b.noOfAnswers;
+        });
+
+        setFilteredQuestions(sortedFiltered);
+    }, [questionsList, filteredQuestions]);
 
     const checkAuth = () =>{
         if(user===null)
@@ -46,8 +56,16 @@ const HomeMainbar = () => {
                 question.questionTags.some(tag => tag.toLowerCase().includes(query.toLowerCase())) ||
                 question.answer.some(ans => ans.answerBody.toLowerCase().includes(query.toLowerCase()))
             );
-            setFilteredQuestions(filtered);
-            console.log(filteredQuestions.length)
+
+            const sortedFiltered = filtered.sort((a, b) => {
+                const upvoteDiff = a.upVote.length - b.upVote.length; // Sort by upvotes (descending)
+                if (upvoteDiff !== 0) {
+                    return upvoteDiff;
+                }
+                return a.noOfAnswers - b.noOfAnswers;
+            });
+
+            setFilteredQuestions(sortedFiltered);
         }
     };
 
