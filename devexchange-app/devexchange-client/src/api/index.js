@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 // Create an Axios instance with a base URL
-// const API = axios.create({ baseURL: 'https://dev-exchange-fawn.vercel.app/' });
-const API = axios.create({ baseURL: 'http://localhost:5000' });
+const API = axios.create({ baseURL: 'https://dev-exchange-fawn.vercel.app/' });
+// const API = axios.create({ baseURL: 'http://localhost:5000' });
 
 // Add a request interceptor to attach the token to each request
 API.interceptors.request.use((req) => {
