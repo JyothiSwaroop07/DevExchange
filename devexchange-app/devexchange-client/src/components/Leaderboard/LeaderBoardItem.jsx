@@ -1,25 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import './Leaderboard.css'
+import './Leaderboard.css';
 
-const LeaderboardItem = ({user, index}) => {
-    console.log(user);
-
-    const color = index%2===0 ? 'aliceblue' : 'antiquewhite';
-
+const LeaderboardItem = ({ user, index }) => {
     return (
-        <Link to={`/Users/${user._id}`} className={`user-item ${color}`}>
-            <h5>
-                {index}
-            </h5>
-            <h5>
-                {user.name}
-            </h5>
-            <h5>
-                {user.email}
-            </h5>
-        </Link>
-    )
-}
+        <tr>
+            <td>{index}</td>
+            <td>
+                <Link to={`/Users/${user._id}`} className="user-link">
+                    {user.name}
+                </Link>
+            </td>
+            <td>{user.email}</td>
+            <td>{user.points} points</td>
+        </tr>
+    );
+};
 
 export default LeaderboardItem;

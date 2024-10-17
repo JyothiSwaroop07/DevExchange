@@ -16,6 +16,7 @@ const QuestionSchema = mongoose.Schema({
         userId : String,
         answeredOn : {type:Date , default:Date.now},
     }]
+    
 
 })
 export default mongoose.model("Question",QuestionSchema)
