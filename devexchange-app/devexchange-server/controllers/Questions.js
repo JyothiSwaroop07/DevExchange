@@ -1,11 +1,19 @@
 import Questions from '../models/Questions.js'
 import mongoose from 'mongoose'
+import Users from '../models/auth.js'
 
 export const AskQuestion = async (req,res) => {
     const postQuestionData = req.body;
+    console.log(postQuestionData);
     const postQuestion = new Questions(postQuestionData);
     try{
         await postQuestion.save();
+
+        await Users.findByIdAndUpdate(
+            postQuestionData.userId, 
+            { $inc: { points: 2 } }
+        );
+
         res.status(200).json("Posted a question successfully");
     }catch(error){
         console.log(error)

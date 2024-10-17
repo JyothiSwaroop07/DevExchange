@@ -57,6 +57,7 @@ const QuestionsDetails = () => {
 
     const handleUpVote = () => {
         dispatch(voteQuestion(id, 'upvote', User.result._id))
+        console.log(id)
     }
 
     const handleDownVote = () => {
