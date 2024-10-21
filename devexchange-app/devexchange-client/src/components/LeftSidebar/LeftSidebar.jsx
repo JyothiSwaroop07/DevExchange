@@ -40,6 +40,10 @@ const LeftSidebar = () => {
                     <FaUsers />
                         <p style={{paddingLeft:"10px"}}>Users</p>
                     </NavLink>
+                    <NavLink to="/Feedback"  className="side-nav-links" activeClassName = "active">
+                    <FaUsers />
+                        <p style={{paddingLeft:"10px"}}>Feedback</p>
+                    </NavLink>
                     
                 
             </nav>

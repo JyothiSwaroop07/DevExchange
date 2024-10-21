@@ -10,6 +10,7 @@ import Users from "./components/Users/Users";
 import Tags from "./components/Tags/Tags";
 import UserProfile from "./components/UserProfile/UserProfile";
 import LeaderBoard from "./components/Leaderboard/Leaderboard";
+import Feedback from "./components/Feedback/Feedback";
 
 
 const Routing = () => {
@@ -24,6 +25,7 @@ const Routing = () => {
             <Route exact path="/Users" element={<Users/>} />
             <Route exact path = "/Tags" element={<Tags/>}/>
             <Route exact path = "/Users/:id" element={<UserProfile/>}/>
+            <Route exact path = "/Feedback" element={<Feedback />} />
         </Routes>
     );
 }

@@ -1,0 +1,51 @@
+.feedback-container {
+    width: 50vw;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    gap: 12px;
+    
+}
+
+.rating {
+    margin-bottom: 15px;
+}
+
+.star {
+    font-size: 24px;
+    cursor: pointer;
+    color: #ccc;
+}
+
+.star.filled {
+    color: gold;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #0086d8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+h2{
+    text-align: center;
+    align-self: center;
+    left: 0%;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
